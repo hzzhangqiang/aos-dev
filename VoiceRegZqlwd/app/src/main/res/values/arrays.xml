@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <string-array name="date_range">
+        <item>最近1天</item>
+        <item>最近3天</item>
+        <item>最近1星期</item>
+        <item>最近1个月</item>
+    </string-array>
+
+    <string-array name="type_range">
+        <item>饮食</item>
+        <item>生活</item>
+    </string-array>
+</resources>

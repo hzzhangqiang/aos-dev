@@ -1,0 +1,107 @@
+package whu.zq.phonebookimexport;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	private ImageButton btnImport = null;
+	private ImageButton btnExport = null;
+	private ImageButton btnDelrep = null;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btnImport = (ImageButton) findViewById(R.id.btn_import);
+        btnExport = (ImageButton) findViewById(R.id.btn_export);
+        btnDelrep = (ImageButton) findViewById(R.id.btn_delRep);
+        
+        // 导入联系人
+        btnImport.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, FileBrowserActivity.class);
+				startActivityForResult(intent, 1);
+			}
+		});
+        
+        // 导出联系人
+        btnExport.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				try {
+					exportContacts();
+				} catch (Throwable e) {
+					e.printStackTrace();
+				}
+			}
+		});
+        
+        // 删除联系人
+        btnDelrep.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				deleteRepeatContacts();
+			}
+		});
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	String strFile, strFileName;
+		if (requestCode==1 && resultCode==100 && data != null){
+			strFile = data.getStringExtra("SelFilePath");
+			strFileName = data.getStringExtra("SelFileName");
+			if (strFile != null && strFileName != null){
+				importContacts(strFile);
+			}
+		}
+    	super.onActivityResult(requestCode, resultCode, data);
+    }
+    
+    // 导入联系人
+    private void importContacts(String fileName){
+    	// 读取excel文件内容
+    	String imStr[] = new String[]{"姓名","手机号","电子邮箱"};
+        ExcelOperation eo = new ExcelOperation(fileName, imStr); 
+        ContactsOperation co = new ContactsOperation(this);
+        while (eo.getNextRow() != null){
+        	// 操作联系人        
+            try {
+				co.insertContactEvent(eo.getXslRowData());
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+        	Log.i("Exsel", "name="+eo.getXslRowData().name + ",phone=" + eo.getXslRowData().mobilePhoneNum + ",email=" + eo.getXslRowData().email);
+        }          
+    }
+    
+    // 导出联系人
+    private void exportContacts() throws Throwable{
+    	ContactsOperation co = new ContactsOperation(this);
+    	co.exportAllContactsToExcel("mnt/sdcard/phoneExport.xls");
+    	Toast.makeText(this, "导出目录"+"./sdcard/phoneExport.xls", Toast.LENGTH_SHORT).show();
+    }
+    
+    // 删除重复联系人
+    private void deleteRepeatContacts(){
+    	
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    
+}

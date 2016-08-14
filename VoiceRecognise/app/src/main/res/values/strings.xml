@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">VoiceRecognise</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="btn_voice_recognise">识别</string>
+
+    <string name="no_voice_recognise_device">找不到语音设备</string>
+    <string name="voice_recognise_start">开始录音</string>
+</resources>

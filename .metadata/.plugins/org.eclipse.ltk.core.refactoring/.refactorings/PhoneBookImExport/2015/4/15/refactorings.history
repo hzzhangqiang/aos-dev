@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;whu.zq.phonebookimexport.FileSortComparator&apos; to &apos;FileSortComparatorUp&apos;&#x0D;&#x0A;- Original project: &apos;PhoneBookImExport&apos;&#x0D;&#x0A;- Original element: &apos;whu.zq.phonebookimexport.FileSortComparator&apos;&#x0D;&#x0A;- Renamed element: &apos;whu.zq.phonebookimexport.FileSortComparatorUp&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;FileSortComparator&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;whu.zq.phonebookimexport{FileSortComparator.java[FileSortComparator" matchStrategy="1" name="FileSortComparatorUp" qualified="false" references="true" similarDeclarations="false" stamp="1428236678955" textual="false" version="1.0"/>
+</session>

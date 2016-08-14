@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E8F2FE"
+     >
+
+    <EditText
+        android:id="@+id/edit_security_code"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:padding="5dp"
+        android:background="#E8F2FE"
+        android:text="" />
+</LinearLayout>

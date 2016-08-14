@@ -1,0 +1,171 @@
+/* 联系人操作 */
+package whu.zq.phonebookimexport;
+
+import java.util.ArrayList;
+
+import android.content.ContentProviderOperation;
+import android.content.ContentProviderResult;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.CommonDataKinds.Email;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.ContactsContract.CommonDataKinds.StructuredName;
+import android.provider.ContactsContract.Contacts.Data;
+import android.provider.ContactsContract.RawContacts;
+import android.util.Log;
+
+public class ContactsOperation {
+	
+	private static final String TAG = "CONTACT";
+	private Context context;
+	private ArrayList<ContentProviderOperation> ops;
+	
+	public ContactsOperation(Context contex) {
+		this.context = contex;
+		ops = new ArrayList<ContentProviderOperation>();
+	}
+
+	/*
+	 * 输出所有联系人到Excel表格中
+	 * */
+	public void exportAllContactsToExcel(String fileName) throws Throwable{
+		int rowID= 0, colID = 0;
+		ExcelOperation eo = new ExcelOperation();
+		// 1.打开Excel（最后要关闭Excel）
+		eo.openExcelForWrite(fileName);
+		//写入标头
+		eo.writeToExcel(rowID, colID++, "姓名");
+		eo.writeToExcel(rowID, colID++, "手机号");
+		eo.writeToExcel(rowID, colID++, "电子邮箱");
+		
+		Uri uri = ContactsContract.Contacts.CONTENT_URI;
+		ContentResolver contentResolver = context.getContentResolver();
+		Cursor cursor = contentResolver.query(uri, null, null, null, null);
+		while (cursor.moveToNext()) {
+			rowID++;
+			colID=0;
+			String contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
+			String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+			eo.writeToExcel(rowID, colID++, name);
+			// 电话号码
+			Cursor curPhones = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+					null, 
+					ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId, 
+					null, null);
+			while (curPhones.moveToNext()){
+				String phoneString = curPhones.getString(curPhones.getColumnIndex(
+						ContactsContract.CommonDataKinds.Phone.NUMBER));
+				eo.writeToExcel(rowID, colID++, phoneString);
+			}
+			curPhones.close();
+			
+			// 电子邮箱
+			Cursor curEmails = contentResolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+					null, 
+					ContactsContract.CommonDataKinds.Email.CONTACT_ID + " = " + contactId, 
+					null, null);
+			while (curEmails.moveToNext()){
+				String emailString = curEmails.getString(curEmails.getColumnIndex(
+						ContactsContract.CommonDataKinds.Email.DATA));
+				eo.writeToExcel(rowID, colID++, emailString);
+			}
+			
+			// 关闭游标
+			curEmails.close();
+		}
+		cursor.close();
+		
+		// 关闭Excel文件
+		eo.closeExcel();
+	}
+
+	/*
+	 * 通过事务插入数据，数据格式为XslContactData
+	 * */
+	public void insertContactEvent(XslContactData conData) throws Throwable{
+		ops.clear();
+		int rawContactInsertIndex = ops.size();
+		// 插入空数据
+		ops.add(ContentProviderOperation.newInsert(RawContacts.CONTENT_URI)
+				.withValue(RawContacts.ACCOUNT_TYPE, null)
+				.withValue(RawContacts.ACCOUNT_NAME, null)
+				.build());
+		// 插入姓名
+		if (conData.name!=null && conData.name!=""){
+			ops.add(ContentProviderOperation.newInsert(android.provider.ContactsContract.Data.CONTENT_URI)
+					.withValueBackReference(Data.RAW_CONTACT_ID, rawContactInsertIndex)
+					.withValue(Data.MIMETYPE, StructuredName.CONTENT_ITEM_TYPE)
+					.withValue(StructuredName.GIVEN_NAME, conData.name)
+					.build());
+		}		
+		// 插入电话
+		if (conData.mobilePhoneNum!=null && conData.mobilePhoneNum!=""){
+			ops.add(ContentProviderOperation.newInsert(android.provider.ContactsContract.Data.CONTENT_URI)
+					.withValueBackReference(Data.RAW_CONTACT_ID, rawContactInsertIndex)
+					.withValue(Data.MIMETYPE, Phone.CONTENT_ITEM_TYPE)
+					.withValue(Phone.NUMBER, conData.mobilePhoneNum)
+					.withValue(Phone.TYPE, Phone.TYPE_MOBILE)
+					.withValue(Phone.LABEL, "手机号")
+					.build());
+		}
+		// 插入邮件
+		if (conData.email!=null && conData.email!=""){
+			ops.add(ContentProviderOperation.newInsert(android.provider.ContactsContract.Data.CONTENT_URI)
+					.withValueBackReference(Data.RAW_CONTACT_ID, rawContactInsertIndex)
+					.withValue(Data.MIMETYPE, Email.CONTENT_ITEM_TYPE)
+					.withValue(Email.DATA, conData.email)
+					.withValue(Email.TYPE, Email.TYPE_WORK)
+					.build());
+		}		
+		ContentProviderResult[] results = context.getContentResolver()
+				.applyBatch(ContactsContract.AUTHORITY, ops);
+	}
+	
+	public void deleteRepeatContact(){
+		// ArrayList用于保存需要删除的联系人_ID
+		ArrayList<String> repContactsId = new ArrayList<String>();
+		Uri uri = ContactsContract.Contacts.CONTENT_URI;
+		ContentResolver contentResolver = context.getContentResolver();
+		Cursor cursor = contentResolver.query(uri, null, null, null, ContactsContract.Contacts.DISPLAY_NAME);
+		
+//		while (cursor.moveToNext()) {
+//			String contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
+//			String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+//		}
+//					Cursor curPhones = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+//							null, 
+//							ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId, 
+//							null, null);
+//					while (curPhones.moveToNext()){
+//						String phoneString = curPhones.getString(curPhones.getColumnIndex(
+//								ContactsContract.CommonDataKinds.Phone.NUMBER));
+//						sb.append(",phone=").append(phoneString);
+//					}
+//					curPhones.close();
+//					
+//					// 电子邮箱
+//					Cursor curEmails = contentResolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+//							null, 
+//							ContactsContract.CommonDataKinds.Email.CONTACT_ID + " = " + contactId, 
+//							null, null);
+//					while (curEmails.moveToNext()){
+//						String emailString = curEmails.getString(curEmails.getColumnIndex(
+//								ContactsContract.CommonDataKinds.Email.DATA));
+//						sb.append(",email=").append(emailString);
+//					}
+//					
+//					// 关闭游标
+//					curEmails.close();
+//					
+//					// 打印
+//					Log.i(TAG, sb.toString());
+//
+//				}
+//				cursor.close();
+	}
+}

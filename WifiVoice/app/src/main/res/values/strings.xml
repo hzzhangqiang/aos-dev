@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">WifiVoice</string>
+
+    <string name="hello_world">这是一段随机声音，可以听到吗？</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="server_tips">当前服务器IP及端口为</string>
+    <string name="client_tips">客户端</string>
+
+    <string name="connect_tips">已连接</string>
+
+    <string name="receive_tips">接收</string>
+    <string name="receive_index">第</string>
+    <string name="receive_package">包</string>
+    <string name="receive_len">总长</string>
+    <string name="receive_byte">字节</string>
+
+    <string name="sample_rate">     采样率:</string>
+    <string name="mono_channel">    单声道</string>
+    <string name="stereo_channel">  立体声道</string>
+    <string name="audio_channel">   立体声:</string>
+    <string name="audio_tracks">     音源数:</string>
+</resources>

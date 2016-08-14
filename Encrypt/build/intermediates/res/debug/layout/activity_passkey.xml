@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/pass_key_val"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="" />
+    
+    <LinearLayout
+        style="android:attr/buttonBarStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+     <Button
+        android:id="@+id/pass_key_submit"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="15dp"
+        android:text="@string/OK" />
+    <Button 
+        android:id="@+id/pass_key_cancel"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:layout_margin="15dp"
+        android:text="@string/CANCEL"
+        />
+    </LinearLayout>
+    
+        "
+
+</LinearLayout>
+<!-- From: file:/E:/Project/Android/AdtProject/Encrypt/res/layout/activity_passkey.xml -->

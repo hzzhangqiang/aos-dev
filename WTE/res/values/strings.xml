@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">去哪儿吃</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="startDisplay">拍照留念，去哪儿吃</string>
+    <string name="btnTake">拍照留念</string>
+
+</resources>

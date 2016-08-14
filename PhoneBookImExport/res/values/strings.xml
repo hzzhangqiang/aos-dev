@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Excel电话本</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- 联系人信息 -->
+    <string name="name">姓名</string>
+    <string name="number">电话号码</string>
+    <string name="email">电子邮箱</string>
+    
+    <string name="book_import">导入</string>
+    <string name="book_export">导出</string>
+    
+    <!-- 浏览文件 -->
+    <string name="Browser">浏览文件</string>
+    <string name="make_sure">确定选择该文件吗？</string>
+    <string name="OK">确定</string>
+    <string name="CANCEL">取消</string>
+    
+    <string name="helpabout">使用说明</string>
+    <string name="setting">设置</string>
+    
+    <string name="defHelp">--version 1.0.0\n1.只支持Excel文件导入</string>
+    
+    <!-- 确认删除重复练联系人 -->
+    <string name="delrepyes">是</string>
+    <string name="delrepno">否</string>
+    <string name="delrepcel">取消</string>
+    <string name="delreptitle">是否在删除前备份联系人</string>
+    
+</resources>

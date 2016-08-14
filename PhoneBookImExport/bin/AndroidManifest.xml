@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="whu.zq.phonebookimexport"
+    android:versionCode="1"
+    android:versionName="find bugs" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="16" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+	<!-- 读取联系人权限 -->
+	<uses-permission android:name="android.permission.READ_CONTACTS" />
+	<!-- 写入联系人权限 -->
+	<uses-permission android:name="android.permission.WRITE_CONTACTS" />
+	
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="whu.zq.phonebookimexport.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name=".FileBrowserActivity"
+            android:label="@string/Browser">
+        </activity>
+        <activity 
+            android:name=".HelpAndAboutActivity"
+            android:label="@string/helpabout" >
+        </activity>
+        <activity 
+            android:name=".DeleteRepeatSureActivity"
+            android:label="@string/delreptitle"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog">
+        </activity>
+    </application>
+    
+</manifest>

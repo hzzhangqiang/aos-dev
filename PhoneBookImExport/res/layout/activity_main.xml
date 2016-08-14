@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"    
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@android:color/black" >    
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <ImageButton 
+        	android:contentDescription="@string/app_name"
+        	android:id="@+id/btn_import"
+        	android:layout_weight="1"
+        	android:layout_width="0dp"
+        	android:layout_height="fill_parent"
+        	android:adjustViewBounds="true"
+        	android:scaleType="centerInside"
+        	android:layout_marginLeft="@dimen/trbl_margin"
+        	android:layout_marginRight="@dimen/trbl_margin"
+        	android:layout_marginBottom="@dimen/trbl_margin"
+        	android:background="@drawable/lt_button"
+        	android:src="@drawable/lt_import" /> 
+        
+    	<ImageButton 
+        	android:contentDescription="@string/app_name"
+        	android:id="@+id/btn_export"
+        	android:layout_weight="1"
+        	android:layout_width="0dp"
+        	android:layout_height="fill_parent"
+        	android:adjustViewBounds="true"		
+        	android:scaleType="centerInside"
+        	android:layout_marginRight="@dimen/trbl_margin"
+        	android:layout_marginBottom="@dimen/trbl_margin"
+        	android:background="@drawable/rt_button"
+        	android:src="@drawable/rt_export" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+       <ImageButton 
+        	android:contentDescription="@string/app_name"
+        	android:id="@+id/btn_delRep"
+        	android:layout_weight="1"
+        	android:layout_width="0dp"
+        	android:layout_height="fill_parent"
+        	android:adjustViewBounds="true"
+        	android:scaleType="centerInside"
+        	android:layout_marginLeft="@dimen/trbl_margin"
+        	android:layout_marginRight="@dimen/trbl_margin"
+        	android:layout_marginBottom="@dimen/trbl_margin"
+        	android:background="@drawable/lb_button"
+        	android:src="@drawable/lb_delete" />
+       <ImageButton 
+           android:contentDescription="@string/app_name"
+        	android:id="@+id/btn_help"
+        	android:layout_weight="1"
+        	android:layout_width="0dp"
+        	android:layout_height="fill_parent"
+        	android:adjustViewBounds="true"
+        	android:scaleType="centerInside"
+        	android:layout_marginRight="@dimen/trbl_margin"
+        	android:layout_marginBottom="@dimen/trbl_margin"
+        	android:background="@drawable/rb_button"
+        	android:src="@drawable/rb_help" />
+    </LinearLayout>
+    
+	<ProgressBar 
+        android:id="@+id/pbar_op"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:layout_margin="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:max="100"
+        android:progress="0"
+        android:visibility="gone" />"
+
+
+</LinearLayout>

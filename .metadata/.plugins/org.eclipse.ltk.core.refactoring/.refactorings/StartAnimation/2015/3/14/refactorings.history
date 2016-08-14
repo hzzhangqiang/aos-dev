@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;StartAnimation/res/anim/alpha_animation.xml&apos; to &apos;alpha_0_1.xml&apos;" description="Rename resource &apos;alpha_animation.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/anim/alpha_animation.xml" name="alpha_0_1.xml" stamp="1427807831325" updateReferences="true"/>
+</session>

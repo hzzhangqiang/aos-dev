@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\Project\Android\AdtProject\Encrypt\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ded9acc6a9792b8f1afc470f0c9cd36d178914cd">
+        <dex dex="E:\Project\Android\AdtProject\Encrypt\build\intermediates\pre-dexed\debug\android-support-v4-f88ce5b4d63675d898a53da3c19dac771c7c98e3.jar" />
+    </item>
+
+</items>

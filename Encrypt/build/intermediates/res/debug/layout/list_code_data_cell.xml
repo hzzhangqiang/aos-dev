@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp">
+
+    <TextView
+        android:id="@+id/code_name"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/code_account"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textSize="19dp"/>
+
+    <TextView
+        android:id="@+id/code_password"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="19dp"/>
+
+</LinearLayout>
+<!-- From: file:/E:/Project/Android/AdtProject/Encrypt/res/layout/list_code_data_cell.xml -->

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">StarSign</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="anim_text">咱能被人看不起吗！</string>
+    
+    <!-- 十二星座  -->
+    <string name="Aries">白羊座(3.21~4.20)</string>
+    <string name="Taurus">金牛座(4.21~5.20)</string>
+    <string name="Gemini">双子座(5.21~6.21)</string>
+    <string name="Cancer">巨蟹座(6.22~7.22)</string>
+    <string name="Leo">狮子座(7.23~8.22)</string>
+    <string name="Virgo">处女座(8.23~9.22)</string>
+    <string name="Libra">天秤座(9.23~10.22)</string>
+    <string name="Scorpio">天蝎座(10.23~11.22)</string>
+    <string name="Sagittarius">射手座(11.23~12.21)</string>
+    <string name="Capricorn">摩羯座(12.22~1.19)</string>
+    <string name="Aquarius">水瓶座(1.20~2.18)</string>
+    <string name="Pisces">双鱼座(2.19~3.20)</string>
+    
+    <string name="Aries_dec">生于每年3月21日至4月20日，火星的本质为阳性，是天上火红色的天体，给人勇猛的感觉，故此以战神阿瑞斯命名，象征勇气、刚强、斗志与男性魅力，掌管个人的冲劲与欲望，对群体具一定影响力。</string>
+    <string name="Taurus_dec">生于每年4月21日至5月20日，是在夏天之夜出现于银河西边的星座，金星是金牛座的守护星，所以金牛座是保守型的星座，金牛座的人有艺术细胞，具有高度欣赏任何艺术的品味和能力。</string>
+    <string name="Gemini_dec">生于每年5月21日至6月21日，水星移动的速度非常快，掌管个人的知识、沟通、推理，以及学习能力、处理困难时的机智、适应环境的能力与个人意识，同时代表了时代转变时科技与学问对日常生活转变的影响。</string>
+    <string name="Cancer_dec">生于每年6月22日至7月22日月亮对个人感情的影响力大过太阳。在天象中，月亮的变化最大，有周期性的阴晴圆缺，代表情绪变化，感情起伏，爱与恨的反覆出现。</string>
+    <string name="Leo_dec">生于每年7月23日至8月22日，太阳是天象中影响力最大的天体，它是天地万物的中心，黄道就是太阳在天上运行的轨迹。太阳支配我们的外在世界，是活力的泉源、战胜黑暗和疾病的力量、天地万物的依归。</string>
+    <string name="Virgo_dec">生于每年8月23日至9月22日，水星守护双子座与处女座。处女座的人十分看重枝微末节，常为了小地方的完美而忽略了大局。</string>
+    <string name="Libra_dec">生于每年9月23日至10月23日，金星的本质为阴性，是天上金色的迷人天体，故此以爱神维纳斯命名，象征爱情与美丽，支配女性魅力与吸引异性的能力，影响个人的审美眼光、美感、社交能力和价值观。</string>
+    <string name="Scorpio_dec">生于每年10月24日至11月22日。是12星座中最神秘的星座。其守护星冥王星的本质为阳性，但其性质却是阴性，是天上米黄色的天体，给人以神秘智慧的感觉。象征理性与 女性魅力，掌管个人的目标与欲望，对群体具一定影响力。</string>
+    <string name="Sagittarius_dec">生于每年11月23日至12月21日，木星在中国及西洋星相学中同样被视为幸运星，代表天赋与灵性。由于木星每年经过一个星座，故又称为岁星，支配个人在不同时期追求的领域。它亦代表法律与正义，支配善与恶、赏与罚。</string>
+    <string name="Capricorn_dec">生于每年12月22日至1月19日，土星是西洋占星术中唯一有光环的天体，绕黄道一周约需三十年，代表人生的起落。通常都很健壮，有过人的耐力、意志坚定、有时间观念、有责任感、重视权威和名声，对领导统御很有一套，自成一格，另外组织能力也不错。</string>
+    <string name="Aquarius_dec">生于每年1月20日至2月18日，代表人生的起落，责任与负担、磨练与成长的方向。它是传统西洋占星术中变化最少的天体，所以也是顽固与耐性的象征，土星支配个人的现实生活。守护星是天王星。</string>
+    <string name="Pisces_dec">生于每年2月19日至3月20日，罚木星守护射手座与双鱼座。双鱼座的守护星为海王星。双鱼座是十二星座中最难评价的星座，白羊的第一宫代表着开端，一切单纯的开始，而双鱼所掌管的第十二宫，即最后一宫，却集合了前十一宫的复杂。)</string>
+    
+</resources>
